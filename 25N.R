@@ -95,6 +95,13 @@ cro(homicidios$LUGAR_OCUR, homicidios$SEXO)
   # |                       | No aplica para muerte natural |                 |       |                 |
   # |                       |                  #Total cases |           31770 |  3640 |             112 |
 
+#Tabla 0: Homicidios de mujeres nacional
+tasa_nac <-  homicidios %>%
+  filter(SEXO=="Mujer")%>%
+  summarize(n=n())%>%
+  mutate(Percent = n / sum(n),
+         tasa=((n/64426273)*100000))
+
 #Tabla 1: Homicidios de mujeres por Estado
 tasa_edo <-  homicidios %>%
   filter(SEXO=="Mujer")%>%
